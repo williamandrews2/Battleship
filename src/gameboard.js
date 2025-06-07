@@ -14,26 +14,26 @@ export class Gameboard {
       throw new Error("Invalid direction");
     }
 
-    if (!this.#canPlaceShip(x,y,length,direction)) {
+    if (!this.#canPlaceShip(x, y, length, direction)) {
       throw new Error("Invalid ship placement");
     }
 
     const ship = new Ship(length);
 
     for (let i = 0; i < length; i++) {
-      const row = direction === "vertical" ? x + i : x;
-      const col = direction === "horizontal" ? y + i : y;
+      const row = direction === "vertical" ? y + i : y;
+      const col = direction === "horizontal" ? x + i : x;
 
       // store the ship on the board
-      this.board[row][col] = { ship, index: i };
+      this.board[row][col] = { ship, index: i, hit: false };
     }
     this.ships.push(ship);
   }
 
   #canPlaceShip(x, y, length, direction) {
     for (let i = 0; i < length; i++) {
-      const row = direction === "vertical" ? x + i : x;
-      const col = direction === "horizontal" ? y + i : y;
+      const row = direction === "vertical" ? y + i : y;
+      const col = direction === "horizontal" ? x + i : x;
 
       // out of bounds check, "is occupied" check
       if (
@@ -49,5 +49,24 @@ export class Gameboard {
     return true;
   }
 
-  receiveAttack(x, y) {}
+  receiveAttack(x, y) {
+    // board[0][1] refers to the coords (1, 0).
+    // "y" is the row, "x" is column.
+
+    const target = this.board[y][x];
+
+    if (target && target.ship) {
+      target.ship.hit();
+      target.hit = true; // update the position on the board as hit
+      return "hit";
+    } else {
+      this.board[y][x] = "miss";
+      return "miss";
+    }
+  }
+
+  allShipsSunk() {
+    const sunkStatus = this.ships.every((ship) => ship.sunk === true);
+    return sunkStatus;
+  }
 }

@@ -50,3 +50,48 @@ describe("Placing a ship", () => {
     }).toThrow("Invalid direction");
   });
 });
+
+describe("Executing attacks on a ship", () => {
+  let board;
+
+  beforeEach(() => {
+    board = new Gameboard();
+  });
+
+  it("Properly handle an attack hitting a ship", () => {
+    board.placeShip(0, 0, 3, "horizontal");
+    board.receiveAttack(1, 0); // attack at x=1, y=0
+    expect(board.board[0][0].ship.hits).toBe(1);
+    expect(board.board[0][1].ship.hits).toBe(1);
+    expect(board.board[0][2].ship.hits).toBe(1);
+    expect(board.receiveAttack(1, 0)).toBe("hit");
+    expect(board.allShipsSunk()).toBe(false);
+  });
+
+  it("Properly handle an attack that misses a ship", () => {
+    expect(board.receiveAttack(1, 0)).toBe("miss");
+  });
+
+  it("Properly handle a ship taking 100% damage", () => {
+    board.placeShip(0, 0, 3, "horizontal");
+    board.receiveAttack(1, 0);
+    board.receiveAttack(0, 0);
+    board.receiveAttack(2, 0);
+    expect(board.board[0][0].ship.hits).toBe(3);
+    expect(board.board[0][0].ship.sunk).toBe(true);
+  });
+
+  it("Properly handle all ships being sunk", () => {
+    board.placeShip(0, 0, 3, "horizontal");
+    board.placeShip(5, 5, 1, "vertical");
+
+    board.receiveAttack(1, 0);
+    board.receiveAttack(0, 0);
+    board.receiveAttack(2, 0);
+
+    board.receiveAttack(5, 5);
+    board.receiveAttack(6, 5);
+
+    expect(board.allShipsSunk()).toBe(true);
+  });
+});
