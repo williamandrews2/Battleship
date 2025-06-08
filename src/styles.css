@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: sans-serif;
+}
+
+html {
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  background-color: lightblue;
+  border: 1px solid #333;
+}
+.cell.ship {
+  background-color: gray;
+}
+.cell.hit {
+  background-color: red;
+}
+.cell.miss {
+  background-color: white;
+}

@@ -1,6 +1,6 @@
 import { Gameboard } from "./gameboard.js";
 
-class Player {
+export class Player {
   constructor(type) {
     if (type !== "real" && type !== "computer") {
       throw new Error("Invalid player type!");
