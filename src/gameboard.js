@@ -56,10 +56,12 @@ export class Gameboard {
     const target = this.board[y][x];
 
     if (target && target.ship) {
+      console.log("Ship has been hit");
       target.ship.hit();
       target.hit = true; // update the position on the board as hit
       return "hit";
     } else {
+      console.log("The ship has been missed");
       this.board[y][x] = "miss";
       return "miss";
     }

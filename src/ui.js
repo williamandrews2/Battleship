@@ -5,7 +5,14 @@ import { Ship } from "./ship.js";
 const container = document.getElementById("gameboard-container");
 
 const renderGameboard = (player) => {
-  container.innerHTML = "";
+  const gameboardContainer = document.createElement("div");
+  gameboardContainer.classList.add("gameboard-container");
+
+  const playerName = document.createElement("h2");
+  playerName.classList.add("player-name");
+  playerName.innerText = player.type === "real" ? "You" : "Computer";
+  gameboardContainer.appendChild(playerName);
+
   const gameboard = document.createElement("div");
   gameboard.className = "gameboard";
 
@@ -23,10 +30,12 @@ const renderGameboard = (player) => {
 
         if (data.hit) {
           cell.classList.add("hit");
-        } else if (data === "miss") {
-          cell.classList.add("miss");
         }
+      } else if (player.gameboard.board[y][x] === "miss") {
+        cell.classList.add("miss");
       }
+
+      console.log(`${x} ${y} ${JSON.stringify(data)}`);
 
       // these are strings, might need to convert to int for calc
       cell.dataset.x = x;
@@ -35,7 +44,8 @@ const renderGameboard = (player) => {
     }
   }
 
-  container.appendChild(gameboard);
+  gameboardContainer.appendChild(gameboard);
+  container.appendChild(gameboardContainer);
 };
 
 export default { renderGameboard };
