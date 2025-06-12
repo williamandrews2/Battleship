@@ -1,0 +1,46 @@
+:root {
+  --preview-color: rgb(107, 255, 107);
+  --preview-placed-color: rgb(0, 189, 0);
+}
+
+#gameboard-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  background-color: lightblue;
+  border: 1px solid #333;
+}
+.cell.ship {
+  background-color: gray;
+}
+.cell.hit {
+  background-color: red;
+}
+.cell.miss {
+  background-color: white;
+}
+
+.cell.preview {
+  background-color: var(--preview-color);
+}
+
+.cell.preview-placed {
+  background-color: var(--preview-placed-color);
+}
+
+.setup-controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}

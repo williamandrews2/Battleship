@@ -11,11 +11,13 @@ export class Gameboard {
 
   placeShip(x, y, length, direction) {
     if (direction !== "vertical" && direction !== "horizontal") {
-      throw new Error("Invalid direction");
+      // throw new Error("Invalid direction");
+      return false;
     }
 
     if (!this.#canPlaceShip(x, y, length, direction)) {
-      throw new Error("Invalid ship placement");
+      // throw new Error("Invalid ship placement");
+      return false;
     }
 
     const ship = new Ship(length);
@@ -28,6 +30,7 @@ export class Gameboard {
       this.board[row][col] = { ship, index: i, hit: false };
     }
     this.ships.push(ship);
+    return true;
   }
 
   #canPlaceShip(x, y, length, direction) {
@@ -56,12 +59,10 @@ export class Gameboard {
     const target = this.board[y][x];
 
     if (target && target.ship) {
-      console.log("Ship has been hit");
       target.ship.hit();
       target.hit = true; // update the position on the board as hit
       return "hit";
     } else {
-      console.log("The ship has been missed");
       this.board[y][x] = "miss";
       return "miss";
     }
