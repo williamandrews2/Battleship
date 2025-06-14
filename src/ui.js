@@ -1,3 +1,5 @@
+import computer from "./computer.js";
+
 let selectedShip = "Carrier";
 let orientation = "horizontal";
 let placedShips = [];
@@ -22,7 +24,7 @@ const setupPlayers = (player1, player2) => {
     alert("Invalid player input!");
   }
   renderSetup(); // begin setup for the player
-  // allow the computer to randomly set their ships on the board
+  computer.generateShips(computerPlayer); // allow the computer to randomly set their ships on the board
 };
 
 const renderSetup = () => {
