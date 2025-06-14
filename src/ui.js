@@ -1,7 +1,3 @@
-import { Gameboard } from "./gameboard.js";
-import { Player } from "./player.js";
-import { Ship } from "./ship.js";
-
 let selectedShip = "Carrier";
 let orientation = "horizontal";
 let placedShips = [];
@@ -25,7 +21,8 @@ const setupPlayers = (player1, player2) => {
   } else {
     alert("Invalid player input!");
   }
-  renderSetup();
+  renderSetup(); // begin setup for the player
+  // allow the computer to randomly set their ships on the board
 };
 
 const renderSetup = () => {

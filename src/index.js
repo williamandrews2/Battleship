@@ -1,7 +1,6 @@
 import "./styles.css";
 import "./gameboard.css";
 
-import { Gameboard } from "./gameboard.js";
 import { Player } from "./player.js";
 import ui from "./ui.js";
 
