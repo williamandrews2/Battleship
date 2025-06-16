@@ -12,7 +12,6 @@ const generateShips = (player) => {
     let success = player.gameboard.placeShip(x, y, length, orientation);
     // continually retry random coords if ship is not able to be placed
     while (!success) {
-      console.log("Computer ship could not be placed. Trying again...");
       x = generateRandomCoord();
       y = generateRandomCoord();
       success = player.gameboard.placeShip(x, y, length, orientation);

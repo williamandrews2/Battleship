@@ -11,3 +11,7 @@
 html {
   background-color: rgb(155, 155, 155);
 }
+
+button {
+  cursor: pointer;
+}
