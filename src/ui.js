@@ -1,4 +1,5 @@
 import computer from "./computer.js";
+import gameController from "./gameController.js";
 
 let selectedShip = "Carrier";
 let orientation = "horizontal";
@@ -24,7 +25,7 @@ const setupPlayers = (player1, player2) => {
     alert("Invalid player input!");
   }
   renderSetup(); // begin setup for the player
-  computer.generateShips(computerPlayer); // allow the computer to randomly set their ships on the board
+  computer.setupBoard(computerPlayer); // allow the computer to randomly set their ships on the board
 };
 
 const renderSetup = () => {
@@ -78,9 +79,7 @@ const renderSetup = () => {
           );
           if (placedShips.length === Object.keys(shipLengths).length) {
             // begin the game
-            container.innerHTML = "";
-            renderGameboard(realPlayer);
-            renderGameboard(computerPlayer);
+            gameController.startGame(realPlayer, computerPlayer);
           } else {
             updateShipSelect(); // move to next ship
           }
@@ -157,7 +156,9 @@ const renderGameboard = (player) => {
       // only attack the opponent and not the player
       if (player.type === "computer") {
         cell.addEventListener("click", () => {
-          player.gameboard.receiveAttack(x, y);
+          console.log("attacked");
+          // player.gameboard.receiveAttack(x, y);
+          gameController.playTurn(x, y);
         });
       }
 
@@ -211,4 +212,4 @@ function updateShipSelect() {
   document.getElementById("ship-select").value = selectedShip;
 }
 
-export default { setupPlayers };
+export default { setupPlayers, renderGameboard };

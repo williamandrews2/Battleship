@@ -1,13 +1,14 @@
+// module responsible for controlling the actions and setup of the opponent (computer)
+
 const shipLengths = [5, 4, 3, 3, 2];
 
-const generateShips = (player) => {
+const setupBoard = (player) => {
   let x, y, length, orientation;
   for (let i = 0; i < shipLengths.length; i++) {
     x = generateRandomCoord();
     y = generateRandomCoord();
     length = shipLengths[i];
     orientation = generateRandomOrientation();
-    console.log(orientation);
 
     let success = player.gameboard.placeShip(x, y, length, orientation);
     // continually retry random coords if ship is not able to be placed
@@ -28,4 +29,4 @@ function generateRandomOrientation() {
   return result;
 }
 
-export default { generateShips };
+export default { setupBoard };
