@@ -156,8 +156,6 @@ const renderGameboard = (player) => {
       // only attack the opponent and not the player
       if (player.type === "computer") {
         cell.addEventListener("click", () => {
-          console.log("attacked");
-          // player.gameboard.receiveAttack(x, y);
           gameController.playTurn(x, y);
         });
       }
