@@ -80,6 +80,7 @@ const renderSetup = () => {
           if (placedShips.length === Object.keys(shipLengths).length) {
             // begin the game
             gameController.startGame(realPlayer, computerPlayer);
+            renderThinkingMsg();
           } else {
             updateShipSelect(); // move to next ship
           }
@@ -208,6 +209,15 @@ function updateShipSelect() {
     selectedShip = unplaced[0]; // choose the next unplaced ship
   }
   document.getElementById("ship-select").value = selectedShip;
+}
+
+function renderThinkingMsg() {
+  const thinkingMsg = document.createElement("div");
+  thinkingMsg.id = "thinking-message";
+  thinkingMsg.textContent = "Opponent thinking...";
+  thinkingMsg.style.display = "none";
+  thinkingMsg.classList.add("thinking-message");
+  document.body.appendChild(thinkingMsg);
 }
 
 export default { setupPlayers, renderGameboard };

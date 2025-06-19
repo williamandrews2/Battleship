@@ -34,7 +34,6 @@ function playTurn(x, y) {
 
 function canAttackShip(x, y) {
   const data = opponent.gameboard.board[y][x];
-  console.log(data);
   if (data === null) {
     return true;
   }
@@ -47,11 +46,23 @@ function canAttackShip(x, y) {
 function switchTurns() {
   [currentPlayer, opponent] = [opponent, currentPlayer];
   if (currentPlayer === computerPlayer) {
+    blockBoard();
+    showThinkingMessage();
     const [x, y] = computer.chooseAttack();
     setTimeout(() => {
       playTurn(x, y);
-    }, 500);
+      unblockBoard();
+      hideThinkingMessage();
+    }, 1000);
   }
+}
+
+function showThinkingMessage() {
+  document.getElementById("thinking-message").style.display = "block";
+}
+
+function hideThinkingMessage() {
+  document.getElementById("thinking-message").style.display = "none";
 }
 
 function endGame(winner) {
@@ -69,6 +80,14 @@ function refreshUI() {
   container.innerHTML = "";
   ui.renderGameboard(realPlayer);
   ui.renderGameboard(computerPlayer);
+}
+
+function blockBoard() {
+  container.style.pointerEvents = "none";
+}
+
+function unblockBoard() {
+  container.style.pointerEvents = "auto";
 }
 
 export default { startGame, playTurn, canAttackShip };
