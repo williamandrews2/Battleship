@@ -38,6 +38,7 @@ function canAttackShip(x, y) {
     return true;
   }
   if (data.hit || opponent.gameboard.board[y][x] === "miss") {
+    alert("That spot has already been attacked, please try another spot.");
     return false;
   }
   return true;
