@@ -5,15 +5,35 @@
 }
 
 :root {
-  font-family: sans-serif;
+  font-family: "Black Ops One", sans-serif;
+  --font-color: white;
 }
 
 html {
-  background-color: rgb(155, 155, 155);
+  background: #4fcaff;
+  background: radial-gradient(
+    circle,
+    rgba(79, 202, 255, 1) 0%,
+    rgba(0, 145, 255, 1) 52%,
+    rgba(0, 75, 214, 1) 100%
+  );
 }
 
 button {
   cursor: pointer;
+}
+
+.main-container h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: var(--font-color);
+  letter-spacing: 1px;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.main-container {
+  min-height: 100vh;
 }
 
 #thinking-message {

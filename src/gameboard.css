@@ -8,6 +8,18 @@
   justify-content: space-around;
 }
 
+.gameboard-container {
+  text-align: center;
+  color: var(--font-color);
+  letter-spacing: 1px;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.gameboard-container h2 {
+  margin: 1rem 0px;
+}
+
 .gameboard {
   display: grid;
   grid-template-columns: repeat(10, 30px);
@@ -42,5 +54,6 @@
 .setup-controls {
   margin-top: 1rem;
   display: flex;
+  justify-content: space-around;
   gap: 1rem;
 }
