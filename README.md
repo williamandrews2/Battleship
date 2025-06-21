@@ -1,7 +1,7 @@
 # 🚢 Battleship Game
 
 A classic game of Battleship built with **vanilla JavaScript**, using **Webpack**, **Test-Driven Development (TDD)** with **Jest**, 
-and modular ES6 architecture. Players can place ships, attack opponents, and watch explosions as they battle to sink each other's fleets.
+and modular ES6 architecture. This project was part of [this lesson](https://www.theodinproject.com/lessons/node-path-javascript-battleship) in the Odin Project curriculum. Players can place ships, attack opponents, and watch explosions as they battle to sink each other's fleets.
 A live preview of the game can be found [here](https://williamandrews2.github.io/Battleship/).
 
 ## 🎮 Features
