@@ -54,7 +54,7 @@ button {
   position: fixed;
   display: flex;
   flex-direction: column;
-  top: 100px;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
   background: #222;
