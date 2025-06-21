@@ -1,3 +1,4 @@
+import audio from "./audio.js";
 import { Ship } from "./ship.js";
 
 export class Gameboard {
@@ -60,10 +61,12 @@ export class Gameboard {
 
     if (target && target.ship) {
       target.ship.hit();
+      audio.playHit();
       target.hit = true; // update the position on the board as hit
       return "hit";
     } else {
       this.board[y][x] = "miss";
+      audio.playMiss();
       return "miss";
     }
   }

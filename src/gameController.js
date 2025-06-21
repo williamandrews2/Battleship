@@ -1,5 +1,6 @@
 import computer from "./computer.js";
 import ui from "./ui.js";
+import audio from "./audio.js";
 
 let currentPlayer;
 let opponent;
@@ -15,6 +16,7 @@ function startGame(real, computer) {
 
   currentPlayer = real;
   opponent = computer;
+  audio.playMusic();
   refreshUI();
 }
 
@@ -38,7 +40,6 @@ function canAttackShip(x, y) {
     return true;
   }
   if (data.hit || opponent.gameboard.board[y][x] === "miss") {
-    alert("That spot has already been attacked, please try another spot.");
     return false;
   }
   return true;

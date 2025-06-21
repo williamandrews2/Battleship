@@ -1,5 +1,6 @@
 import computer from "./computer.js";
 import gameController from "./gameController.js";
+import audio from "./audio.js";
 
 let selectedShip = "Carrier";
 let orientation = "horizontal";
@@ -70,6 +71,7 @@ const renderSetup = () => {
         );
         if (success) {
           placedShips.push(selectedShip);
+          audio.playPlacingShip();
           highlightShip(
             x,
             y,
