@@ -49,3 +49,57 @@ button {
   z-index: 1001;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
+
+#ship-select {
+  appearance: none; /* Remove default styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #007acc;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  padding-right: 36px; /* Make space for the arrow */
+}
+
+#ship-select:hover {
+  background-color: #005fa3;
+}
+
+#ship-select:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 4px rgba(0, 122, 204, 0.6);
+}
+
+.setup-controls button {
+  background-color: #007acc;
+  width: 200px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.setup-controls button:hover {
+  background-color: #005fa3;
+}
+
+.setup-controls button:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 122, 204, 0.6);
+}
