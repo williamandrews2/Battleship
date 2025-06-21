@@ -36,7 +36,7 @@ button {
   min-height: 100vh;
 }
 
-#thinking-message {
+#message {
   position: fixed;
   top: 20px;
   left: 50%;
@@ -48,6 +48,32 @@ button {
   font-size: 1rem;
   z-index: 1001;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#winning-message {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: yellow;
+  padding: 30px;
+  border-radius: 8px;
+  font-size: 2rem;
+  z-index: 1001;
+}
+
+#winning-message button {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Black Ops One", sans-serif;
+  color: white;
+  background-color: #4fcaff;
 }
 
 #ship-select {

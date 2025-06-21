@@ -82,7 +82,7 @@ const renderSetup = () => {
           if (placedShips.length === Object.keys(shipLengths).length) {
             // begin the game
             gameController.startGame(realPlayer, computerPlayer);
-            renderThinkingMsg();
+            renderMessage();
           } else {
             updateShipSelect(); // move to next ship
           }
@@ -213,13 +213,29 @@ function updateShipSelect() {
   document.getElementById("ship-select").value = selectedShip;
 }
 
-function renderThinkingMsg() {
-  const thinkingMsg = document.createElement("div");
-  thinkingMsg.id = "thinking-message";
-  thinkingMsg.textContent = "Opponent thinking...";
-  thinkingMsg.style.display = "none";
-  thinkingMsg.classList.add("thinking-message");
-  document.body.appendChild(thinkingMsg);
+function renderMessage() {
+  const message = document.createElement("div");
+  message.id = "message";
+  message.textContent = "Opponent thinking...";
+  message.style.display = "none";
+  message.classList.add("message");
+  document.body.appendChild(message);
 }
 
-export default { setupPlayers, renderGameboard };
+const renderWinner = (winningText) => {
+  const winningMessage = document.createElement("div");
+  winningMessage.id = "winning-message";
+  winningMessage.textContent = `${winningText}`;
+
+  const okButton = document.createElement("button");
+  okButton.textContent = "OK";
+  okButton.id = "ok-button";
+  winningMessage.appendChild(okButton);
+  document.body.appendChild(winningMessage);
+
+  okButton.addEventListener("click", () => {
+    window.location.reload(); // refresh the page to start a new game
+  });
+};
+
+export default { setupPlayers, renderGameboard, renderWinner };

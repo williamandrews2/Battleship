@@ -13,7 +13,6 @@ const container = document.getElementById("gameboard-wrapper");
 function startGame(real, computer) {
   realPlayer = real;
   computerPlayer = computer;
-
   currentPlayer = real;
   opponent = computer;
   audio.playMusic();
@@ -60,22 +59,19 @@ function switchTurns() {
 }
 
 function showThinkingMessage() {
-  document.getElementById("thinking-message").style.display = "block";
+  document.getElementById("message").style.display = "block";
 }
 
 function hideThinkingMessage() {
-  document.getElementById("thinking-message").style.display = "none";
+  document.getElementById("message").style.display = "none";
 }
 
 function endGame(winner) {
-  let winnerMessage;
   if (winner.type === "real") {
-    winnerMessage = "You win!";
+    ui.renderWinner("You won!");
   } else {
-    winnerMessage = "Opponent won.";
+    ui.renderWinner("Opponent wins.");
   }
-  alert(`${winnerMessage}`);
-  window.location.reload(); // refresh the page to start a new game
 }
 
 function refreshUI() {
