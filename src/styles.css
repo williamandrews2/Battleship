@@ -103,3 +103,9 @@ button {
   outline: none;
   box-shadow: 0 0 4px rgba(0, 122, 204, 0.6);
 }
+
+@media screen and (max-width: 768px) {
+  .main-container h1 {
+    font-size: 3rem;
+  }
+}

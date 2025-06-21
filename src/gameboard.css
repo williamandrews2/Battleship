@@ -59,3 +59,20 @@
   justify-content: space-around;
   gap: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  #gameboard-wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .gameboard {
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+  }
+
+  .cell {
+    height: 30px;
+    width: 30px;
+  }
+}
