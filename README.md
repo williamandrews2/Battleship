@@ -31,4 +31,5 @@ Gameplay screenshot (PC):
 ![battleship-ss2](https://github.com/user-attachments/assets/520fc9ea-48df-4e63-a38a-f8f595f1abdc)
 
 Gameplay screenshot (Mobile):
+
 ![battleship-ss5](https://github.com/user-attachments/assets/309d6f14-ef64-4d24-846b-c376326ceb21)
