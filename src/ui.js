@@ -150,8 +150,6 @@ const renderGameboard = (player) => {
       const cell = document.createElement("div");
       cell.classList.add("cell");
 
-      // TODO: add this statement into an if statement once
-      // confirmed working (hide opponents ships from user).
       addCellStyles(x, y, player, cell);
 
       // only attack the opponent and not the player
@@ -174,7 +172,9 @@ const renderGameboard = (player) => {
 function addCellStyles(x, y, player, cell) {
   const data = player.gameboard.board[y][x];
   if (data?.ship) {
-    cell.classList.add("ship");
+    if (player.type === "real") {
+      cell.classList.add("ship");
+    }
 
     if (data.hit) {
       cell.classList.add("hit");
