@@ -6,7 +6,7 @@ import missSound from "./audio/boom-sfx.mp3";
 const playMusic = () => {
   let bgMusic = new Audio(backgroundMusic);
   bgMusic.loop = true;
-  bgMusic.volume = 0.2;
+  bgMusic.volume = 0.1;
   bgMusic.play();
 };
 

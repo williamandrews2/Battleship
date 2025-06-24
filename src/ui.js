@@ -139,7 +139,8 @@ const renderGameboard = (player) => {
 
   const playerName = document.createElement("h2");
   playerName.classList.add("player-name");
-  playerName.innerText = player.type === "real" ? "You" : "Computer";
+  playerName.innerText =
+    player.type === "real" ? "Your waters" : "Opponent's waters";
   gameboardContainer.appendChild(playerName);
 
   const gameboard = document.createElement("div");
