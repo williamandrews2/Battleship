@@ -718,7 +718,7 @@ __webpack_require__.r(__webpack_exports__);
 const playMusic = () => {
   let bgMusic = new Audio(_audio_the_last_stand_mp3__WEBPACK_IMPORTED_MODULE_0__);
   bgMusic.loop = true;
-  bgMusic.volume = 0.2;
+  bgMusic.volume = 0.1;
   bgMusic.play();
 };
 
@@ -1368,7 +1368,8 @@ const renderGameboard = (player) => {
 
   const playerName = document.createElement("h2");
   playerName.classList.add("player-name");
-  playerName.innerText = player.type === "real" ? "You" : "Computer";
+  playerName.innerText =
+    player.type === "real" ? "Your waters" : "Opponent's waters";
   gameboardContainer.appendChild(playerName);
 
   const gameboard = document.createElement("div");
